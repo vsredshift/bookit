@@ -2,12 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaChevronLeft } from "react-icons/fa";
 import Heading from "@/components/Heading";
-import rooms from "@/data/rooms.json";
 import BookingForm from "@/components/BookingForm";
+import getRoom from "@/app/actions/getRoom";
 
 const RoomPage = async ({ params }) => {
   const { id } = await params;
-  const room = rooms.find((room) => room.$id === id);
+  const room = await getRoom(id);
 
   if (!room) {
     return <Heading title="Room not found" />;
