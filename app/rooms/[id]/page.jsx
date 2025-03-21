@@ -42,18 +42,18 @@ const RoomPage = async ({ params }) => {
 
             <ul className="space-y-2">
               <li>
-                <span className="font-semibold text-gray-800">Size:</span> {room.sqft}{" "}
-                sq ft
+                <span className="font-semibold text-gray-800">Size:</span>{" "}
+                {room.sqft} sq ft
               </li>
               <li>
                 <span className="font-semibold text-gray-800">
-                  Availability: {" "}
+                  Availability:{" "}
                 </span>
                 {room.availability}
               </li>
               <li>
-                <span className="font-semibold text-gray-800">Price:{" "}</span>
-                ${room.price_per_hour}/hour
+                <span className="font-semibold text-gray-800">Price: </span>$
+                {room.price_per_hour}/hour
               </li>
               <li>
                 <span className="font-semibold text-gray-800">Address:</span>{" "}
@@ -63,8 +63,7 @@ const RoomPage = async ({ params }) => {
           </div>
         </div>
 
-        <BookingForm />
-
+        <BookingForm room={room} />
       </div>
     </>
   );

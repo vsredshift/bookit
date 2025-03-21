@@ -2,8 +2,8 @@
 
 import { createSessionClient } from "@/config/appwrite";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/dist/server/api-utils";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { Query } from "node-appwrite";
 
 const db = process.env.NEXT_PUBLIC_APPWRITE_DATABASE;
