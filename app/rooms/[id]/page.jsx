@@ -4,6 +4,7 @@ import { FaChevronLeft } from "react-icons/fa";
 import Heading from "@/components/Heading";
 import BookingForm from "@/components/BookingForm";
 import getRoom from "@/app/actions/getRoom";
+import getImage from "@/utils/getImage";
 
 const RoomPage = async ({ params }) => {
   const { id } = await params;
@@ -12,6 +13,8 @@ const RoomPage = async ({ params }) => {
   if (!room) {
     return <Heading title="Room not found" />;
   }
+
+  const imageSrc = getImage(room);
 
   return (
     <>
@@ -27,7 +30,7 @@ const RoomPage = async ({ params }) => {
 
         <div className="flex flex-col sm:flex-row sm:space-x-6">
           <Image
-            src={`/images/rooms/${room.image}`}
+            src={imageSrc}
             alt={room.name}
             width={400}
             height={100}

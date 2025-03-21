@@ -1,13 +1,16 @@
+import getImage from "@/utils/getImage";
 import Image from "next/image";
 import Link from "next/link";
 
 const RoomCard = ({ room }) => {
+  const imageSrc = getImage(room);
+  
   return (
     <>
       <div className="bg-white shadow rounded-lg p-4 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center">
         <div className="flex flex-col sm:flex-row sm:space-x-4">
           <Image
-            src={`/images/rooms/${room.image}`}
+            src={imageSrc}
             alt={room.name}
             width={400}
             height={100}
@@ -16,14 +19,19 @@ const RoomCard = ({ room }) => {
           <div className="space-y-1">
             <h4 className="text-lg font-semibold">{room.name}</h4>
             <p className="text-sm text-gray-600">
-              <span className="font-semibold text-gray-800"> Address:</span> {room.address}
+              <span className="font-semibold text-gray-800"> Address:</span>{" "}
+              {room.address}
             </p>
             <p className="text-sm text-gray-600">
-              <span className="font-semibold text-gray-800"> Availability:</span>{room.availability}
+              <span className="font-semibold text-gray-800">
+                {" "}
+                Availability:
+              </span>
+              {room.availability}
             </p>
             <p className="text-sm text-gray-600">
-              <span className="font-semibold text-gray-800"> Price:</span>
-              ${room.price_per_hour}/hour
+              <span className="font-semibold text-gray-800"> Price:</span>$
+              {room.price_per_hour}/hour
             </p>
           </div>
         </div>

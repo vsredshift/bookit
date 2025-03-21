@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const checkAuthentication = async () => {
-      const { isAuthenticated, user } = checkAuth();
+      const { isAuthenticated, user } = await checkAuth();
       setIsAuthenticated(isAuthenticated);
       setCurrentUser(user);
     };

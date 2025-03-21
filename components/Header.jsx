@@ -22,6 +22,7 @@ const Header = () => {
       toast.error(error);
     }
   };
+  
   return (
     <header className="bg-gray-100">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
